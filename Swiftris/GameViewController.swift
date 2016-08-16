@@ -11,9 +11,21 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var scene: GameScene!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Config the view
+        let skView = view as! SKView
+        skView.multipleTouchEnabled = false
+        
+        //Put the scene onto the controller
+        scene = GameScene(size: skView.bounds.size)
+        scene.scaleMode = .AspectFill
+        
+        skView.presentScene(scene)
+        
 /*
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
